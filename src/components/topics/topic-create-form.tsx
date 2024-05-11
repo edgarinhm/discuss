@@ -1,6 +1,7 @@
 "use client";
 import { createTopic } from "@/actions";
 import { useFormState } from "react-dom";
+import FormButton from "../common/form-button";
 import {
   Button,
   Input,
@@ -21,7 +22,7 @@ export default function TopicCreateForm() {
         </Button>
       </PopoverTrigger>
       <PopoverContent>
-        <form action={action}>
+        <form noValidate autoComplete="off" action={action}>
           <div className="flex flex-col gap-4 p-4 w-80">
             <h3 className="text-lg">{"Create a Topic"}</h3>
             <Input
@@ -45,7 +46,7 @@ export default function TopicCreateForm() {
                 {formState?.errors?._form?.join(",")}
               </div>
             ) : null}
-            <Button type="submit">{"Submit"}</Button>
+            <FormButton>{"Save"}</FormButton>
           </div>
         </form>
       </PopoverContent>
